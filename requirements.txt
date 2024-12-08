@@ -1,7 +1,6 @@
 gtts
 flask
 flask-cors
-os
 gunicorn
 pdfplumber
 logging
