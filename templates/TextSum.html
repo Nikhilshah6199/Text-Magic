@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% block content %}
+
+<div
+  class="container mt-5"
+  style="background-color: #fff9c4; padding: 30px; border-radius: 10px"
+>
+  <h1>Text Summarizer</h1>
+  {% if error_message %}
+  <div class="alert">{{ error_message }}</div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data">
+    <label for="pdf_file">Upload a PDF:</label><br />
+    <input
+      class="textsum-input"
+      type="file"
+      name="pdf_file"
+      id="pdf_file"
+    /><br /><br />
+    <br /><br />
+
+    <label for="manual_text">Or Enter Text Manually:</label><br />
+    <textarea
+      class="textsum-textarea"
+      name="manual_text"
+      id="manual_text"
+      placeholder="Enter text to summarize..."
+    ></textarea>
+    <br />
+    <button type="submit">Summarize</button>
+  </form>
+
+  {% if summary %}
+  <div class="content">
+    <h2>Summary:</h2>
+    <pre class="textsum-summary">{{ summary }}</pre>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock %}

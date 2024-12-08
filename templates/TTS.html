@@ -1,0 +1,139 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  class="container mt-5"
+  style="background-color: #fff9c4; padding: 30px; border-radius: 10px"
+>
+  <section class="testimonials text-center">
+    <div class="container-fluid">
+      <h1>Text to Speech</h1>
+      <div class="mb-0">
+        <form action="/predict" method="post" name="accent_form"></form>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-xs-12">
+          <form method="post" id="datafetch_form" enctype="multipart/form-data">
+            <label for="accent">Select English Accent</label>
+            <select
+              class="form-id"
+              id="form-id-accent"
+              name="accent"
+              placeholder="accent"
+              required="required"
+            >
+              <option value="" disabled selected>
+                Which English accent do you want?
+              </option>
+              {% for accent in accent_list %}
+              <option value="{{accent}}">{{accent}}</option>
+              {% endfor %}
+            </select>
+            <div class="form-group files color">
+              <textarea
+                class="form-control"
+                rows="8"
+                id="comment"
+                placeholder="Enter text to convert to speech..."
+                style="width: 100%; margin: 10px"
+              ></textarea>
+            </div>
+            <div style="align: center">
+              <button
+                class="form-control btn-primary mb-5"
+                id="fetch"
+                type="submit"
+                style="
+                  border: 1px solid black;
+                  border-radius: 5px;
+                  padding: 10px 20px;
+                  background-color: #007bff;
+                  color: white;
+                  width: auto;
+                "
+              >
+                Convert
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="res-container col-md-6 col-xs-12">
+          <div class="result-box">
+            <h6 class="title">Result</h6>
+            <div class="json-result"></div>
+            <button
+              id="download-audio"
+              class="form-control btn-secondary mt-3"
+              style="
+                border: 1px solid black;
+                border-radius: 5px;
+                padding: 10px 20px;
+                background-color: #6c757d;
+                color: white;
+                width: auto;
+                display: none;
+              "
+            >
+              Download Audio
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="loading">
+  <div class="loader"></div>
+</div>
+<!-- Bootstrap core JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("#loading").hide();
+
+    $("#fetch").click(function (e) {
+      e.preventDefault();
+      var input = $("#comment").val();
+      var val = $("#form-id-accent").val();
+      $("#loading").show();
+
+      $.ajax({
+        url: "../predict",
+        type: "post",
+        mode: "no-cors",
+        crossdomain: true,
+        withCredentials: false,
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
+        },
+        data: JSON.stringify({ data: input, accent: val }),
+        success: function (response) {
+          $(".json-result").html("");
+          $(".json-result").html(
+            '<audio id="audio" controls="controls"><source id="audioSource" src=""></source>Your browser does not support the audio format.</audio>'
+          );
+
+          var audio = document.getElementById("audio");
+          var source = document.getElementById("audioSource");
+          var audioFile = "data:audio/wav;base64," + response.data;
+
+          source.src = audioFile;
+          audio.load();
+          $("#loading").hide();
+
+          // Show the Download button
+          $("#download-audio").show();
+
+          // Set the download functionality
+          $("#download-audio").click(function () {
+            window.location.href = `../download/${response.file_name}`;
+          });
+        },
+      });
+    });
+  });
+</script>
+{% endblock %}

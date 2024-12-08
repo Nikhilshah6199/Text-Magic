@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Text Magic</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Link to external CSS file -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Text Magic</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.endpoint == 'home' %}active{% endif %}"
+                href="{{ url_for('home') }}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.endpoint == 'textsum' %}active{% endif %}"
+                href="{{ url_for('textsum') }}"
+                >Text Summarization</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.endpoint == 'tts' %}active{% endif %}"
+                href="{{ url_for('tts') }}"
+                >Text-To-Speech</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.endpoint == 'trans' %}active{% endif %}"
+                href="{{ url_for('trans') }}"
+                >Language Translation</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link {% if request.endpoint == 'spellchecker' %}active{% endif %}"
+                href="{{ url_for('spellchecker') }}"
+                >Spell Checker</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="background-color: #ff7f50>
+   
+      <div class="content-block">{% block content %} {% endblock %}</div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

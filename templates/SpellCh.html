@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time Spell Checker</title>
+  </head>
+  <body>
+    <div
+      class="container mt-5"
+      style="background-color: #fff9c4; padding: 30px; border-radius: 10px"
+    >
+      <h1>Real-Time Spell Checker</h1>
+      <form method="POST">
+        <textarea
+          class="Spellch-textarea"
+          name="text"
+          placeholder="Enter the text..."
+        >
+{{ original_text }}</textarea
+        >
+        <br />
+        <button type="submit" style="margin-top: 3px" class="button">
+          Check Spelling
+        </button>
+      </form>
+      {% if corrected_text %}
+      <div class="result">
+        <h3>Original Text:</h3>
+        <p>{{ original_text }}</p>
+        <h3>Corrected Text:</h3>
+        <p>{{ corrected_text }}</p>
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+gtts
+flask
+flask-cors
+os
+gunicorn
+pdfplumber
+logging
+warnings
+re
+uuid
+googletrans
+transformers
+sys
+textblob
+torch

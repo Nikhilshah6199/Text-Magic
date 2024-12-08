@@ -1,0 +1,137 @@
+{% extends 'base.html' %} {% block content %}
+
+<div
+  class="container mt-5"
+  style="background-color: #fff9c4; padding: 30px; border-radius: 10px"
+>
+  <!-- Main Title with Underline -->
+  <h1 class="text-center text-primary mb-4">Welcome to Text Magic</h1>
+  <hr class="mx-auto" style="width: 50%; border-top: 3px solid #3498db" />
+
+  <!-- Description Text -->
+  <p class="text-center mb-5">
+    Your one-stop solution for language identification, translation, text
+    summarization, and text-to-speech!
+  </p>
+
+  <!-- Vocabulary of the Day Section -->
+  <h2 class="text-center mb-4">Vocabulary of the Day</h2>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr class="bg-info text-white">
+        <th>Word</th>
+        <th>Meaning</th>
+        <th>Hindi Translation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Resilient</td>
+        <td>Able to recover quickly from difficulties</td>
+        <td>लचीला</td>
+      </tr>
+      <tr>
+        <td>Ingenious</td>
+        <td>Very clever or inventive</td>
+        <td>अद्भुत</td>
+      </tr>
+      <tr>
+        <td>Ambition</td>
+        <td>Strong desire to achieve something</td>
+        <td>महत्त्वाकांक्षा</td>
+      </tr>
+      <tr>
+        <td>Benevolent</td>
+        <td>Kind and generous</td>
+        <td>दयालु</td>
+      </tr>
+      <tr>
+        <td>Harmony</td>
+        <td>Agreement or concord</td>
+        <td>सामंजस्य</td>
+      </tr>
+      <tr>
+        <td>Tenacious</td>
+        <td>Very determined or persistent</td>
+        <td>दृढ़</td>
+      </tr>
+      <tr>
+        <td>Frugal</td>
+        <td>Economical or thrifty</td>
+        <td>मितव्ययी</td>
+      </tr>
+      <tr>
+        <td>Serendipity</td>
+        <td>Finding something good without looking for it</td>
+        <td>सौभाग्य</td>
+      </tr>
+      <tr>
+        <td>Euphoria</td>
+        <td>Intense happiness or excitement</td>
+        <td>आनंद</td>
+      </tr>
+      <tr>
+        <td>Empathy</td>
+        <td>Ability to understand and share the feelings of others</td>
+        <td>सहानुभूति</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- New Section for Chatbot and Image with Background Color -->
+
+<div
+class="container mt-5"
+style="background-color:  #fff9c4; padding: 30px; border-radius: 10px"
+>
+    <!-- Chatbot and Image Section -->
+    <div class="row">
+      <!-- Chatbot iframe at the right -->
+      <div class="col-md-6 d-flex justify-content-center flex-column">
+        <iframe
+          allow="microphone;"
+          width="350"
+          height="430"
+          src="https://console.dialogflow.com/api-client/demo/embedded/1f2b658f-97eb-4fef-b618-28226a732440"
+          style="border-radius: 10px; border: 3px solid #3498db"
+        >
+        </iframe>
+
+        <!-- Quote below the chatbot iframe -->
+        <p class="mt-4" style="font-size: 1.2rem; font-style: italic">
+          "Language is the road map of a culture." – Rita Mae Brown
+        </p>
+      </div>
+
+      <!-- Image and Text on the left -->
+      <div class="col-md-6">
+        <img
+          src="https://img.freepik.com/free-vector/flat-international-mother-language-day-illustration_23-2149219243.jpg"
+          alt="Welcome Image"
+          class="img-fluid rounded shadow-lg mb-4"
+        />
+        <p style="font-size: 1.2rem">
+          Explore the features of our website and feel free to provide feedback!
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- "Made with Love" Section at the bottom -->
+<div
+  style="
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    margin-top: 30px;
+    border-top: 2px solid #3498db;
+  "
+>
+  Made with ❤️ by the Text Magic Team
+</div>
+
+{% endblock %}

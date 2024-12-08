@@ -1,0 +1,150 @@
+/* General body styling */
+body {
+  margin: 0;
+  padding-top: 56px; /* Fixed navbar height offset */
+  background-color: black;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #333;
+}
+
+h1 {
+  font-weight: 700;
+  color: #273582;
+  text-align: center;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  color: #273582;
+}
+
+/* Navbar styling */
+.navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-dark .navbar-brand {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.navbar-dark .nav-link.active {
+  color: #ff7f00;
+  font-weight: bold;
+}
+
+/* Container styling */
+.container {
+  background-color: #dae9f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px lightgrey;
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Form controls */
+.form-control,
+.form-control:focus {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 40%;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer styling */
+footer {
+  background-color: #273582;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+footer a {
+  color: #ff7f00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Content-specific styling */
+.content-block {
+  margin-top: 20px;
+}
+
+.content-block h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.content-block p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.Spellch-textarea {
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 40%;
+}
+
+.textsum-input {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 0px;
+}
+
+.textsum-textarea {
+  margin-top: 0px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  width: 50%;
+}
+
+.textsum-summary {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+}
+
+/* For smaller devices */
+@media (max-width: 576px) {
+  .container {
+    padding: 20px;
+  }
+}
