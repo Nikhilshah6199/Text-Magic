@@ -3,12 +3,7 @@ flask
 flask-cors
 gunicorn
 pdfplumber
-logging
-warnings
-re
-uuid
 googletrans
 transformers
-sys
 textblob
 torch
