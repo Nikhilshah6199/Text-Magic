@@ -7,3 +7,4 @@ googletrans
 transformers
 textblob
 torch
+from-root
